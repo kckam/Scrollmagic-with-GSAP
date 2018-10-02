@@ -3,12 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "gsap": "^2.0.2",
     "node-sass": "^4.9.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "react-render-html": "^0.6.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
-    "sass-loader": "^7.1.0"
+    "react-thunk": "^1.0.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "sass-loader": "^7.1.0",
+    "scrollmagic": "^2.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
