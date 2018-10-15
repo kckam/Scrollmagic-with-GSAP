@@ -55,13 +55,6 @@ class AlbumList extends Component {
     render() {
         return (
             <div>
-                <video controls>
-                    <source
-                        src="http://techslides.com/demos/sample-videos/small.mp4"
-                        type="video/mp4"
-                    />
-                </video>
-
                 <h1>Albums</h1>
                 <ul className="albums">{this.renderAlbumList()}</ul>
                 <h1>Todos</h1>

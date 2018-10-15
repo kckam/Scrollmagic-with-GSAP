@@ -5,6 +5,7 @@ import { TweenLite } from "gsap";
 import ReactDOM from "react-dom";
 import Gallery from "./Gallery";
 import ScrollMagicAnimate from "./ScrollMagicAnimate";
+import ThreeJS from "./ThreeJS";
 
 const Header = () => {
     return <div>Header</div>;
@@ -27,15 +28,24 @@ class Body1 extends Component {
 
 class Body extends Component {
     componentDidMount() {
-        console.log("Body Loaded.");
         console.log(ReactDOM.findDOMNode(this));
     }
 
     render() {
         return (
-            <Link to="/1">
-                <div>Body</div>
-            </Link>
+            <div class="loader">
+                <div>
+
+                </div>
+
+                <div>
+
+                </div>
+
+                <div>
+
+                </div>
+            </div>
         );
     }
 }
@@ -66,10 +76,14 @@ class App extends Component {
     render() {
         return (
             <div className="container">
+                <div className="line" />
+                <div className="line" />
+                <div className="line" />
+                <div className="line" />
+                <div className="line" />
                 <BrowserRouter>
                     <div>
-                        <ScrollMagicAnimate />
-                        <Gallery />
+                        {/* <Gallery />
                         <h2
                             ref="here"
                             onClick={e => {
@@ -79,9 +93,12 @@ class App extends Component {
                             Score {this.state.score} {this.root}
                         </h2>
                         <Header />
-                        <AlbumList />
+                        <AlbumList /> */}
                         <Route exact path="/" component={Body} />
                         <Route path="/1" component={Body1} />
+                        <Route path="/three" component={ThreeJS} />
+                        <Route path="/gsap" component={ScrollMagicAnimate} />
+                        {/* <ScrollMagicAnimate /> */}
                     </div>
                 </BrowserRouter>
             </div>

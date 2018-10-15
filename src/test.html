@@ -1,0 +1,110 @@
+<style type="text/css">
+    .parallaxParent {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .parallaxParent>* {
+        height: 200%;
+        position: relative;
+        top: -100%;
+    }
+</style>
+<div class="spacer s0"></div>
+<div id="parallax1" class="parallaxParent">
+    <div style="background-image: url(http://scrollmagic.io/img/example_parallax_bg1.png);"></div>
+</div>
+<div class="spacer s1">
+    <div class="box2 blue">
+        <p>Content 1</p>
+        <a href="#" class="viewsource">view source</a>
+    </div>
+</div>
+<div class="spacer s0"></div>
+<div id="parallax2" class="parallaxParent">
+    <div style="background-image: url(http://scrollmagic.io/img/example_parallax_bg2.png);"></div>
+</div>
+<div class="spacer s1">
+    <div class="box2 blue">
+        <p>Content 2</p>
+        <a href="#" class="viewsource">view source</a>
+    </div>
+</div>
+<div class="spacer s0"></div>
+<div id="parallax3" class="parallaxParent">
+    <div style="background-image: url(http://scrollmagic.io/img/example_parallax_bg3.png);"></div>
+</div>
+<div class="spacer s2"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+
+<script>
+    // init controller
+    var controller = new ScrollMagic.Controller({ globalSceneOptions: { triggerHook: "onEnter", duration: "200%" } });
+
+    // build scenes
+    new ScrollMagic.Scene({ triggerElement: "#parallax1" })
+        .setTween("#parallax1 > div", { y: "80%", ease: Linear.easeNone })
+        .addIndicators()
+        .addTo(controller);
+
+    new ScrollMagic.Scene({ triggerElement: "#parallax2" })
+        .setTween("#parallax2 > div", { y: "80%", ease: Linear.easeNone })
+        .addIndicators()
+        .addTo(controller);
+
+    new ScrollMagic.Scene({ triggerElement: "#parallax3" })
+        .setTween("#parallax3 > div", { y: "80%", ease: Linear.easeNone })
+        .addIndicators()
+        .addTo(controller);
+</script>
+
+<div class="spacer s1"></div>
+<div id="trigger" class="spacer s1"></div>
+<div class="spacer s0"></div>
+<div id="pin" class="box1 red">
+    <p>Unpinned.</p>
+    <a href="#" class="viewsource">view source</a>
+</div>
+<div class="spacer s2"></div>
+<script>
+    $(function () { // wait for document ready
+        // init controller
+        var controller = new ScrollMagic.Controller();
+
+        // show pin state
+        function updateBox(e) {
+            if (e.type == "enter") {
+                $("#pin p").text("Pinned.");
+            } else {
+                $("#pin p").text("Unpinned.");
+            }
+        }
+
+        // build scenes
+        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 150 })
+            .setPin("#pin")
+            .setClassToggle("#pin", "green")
+            .on("enter leave", updateBox)
+            .addIndicators() // add indicators (requires plugin)
+            .addTo(controller);
+
+        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 150, offset: 300 })
+            .setPin("#pin")
+            .setClassToggle("#pin", "green")
+            .on("enter leave", updateBox)
+            .addIndicators() // add indicators (requires plugin)
+            .addTo(controller);
+
+        new ScrollMagic.Scene({ triggerElement: "#trigger", duration: 150, offset: 600 })
+            .setPin("#pin")
+            .setClassToggle("#pin", "green")
+            .on("enter leave", updateBox)
+            .addIndicators() // add indicators (requires plugin)
+            .addTo(controller);
+    });
+</script>
